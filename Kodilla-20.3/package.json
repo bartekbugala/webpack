@@ -1,0 +1,20 @@
+{
+  "name": "webpack-study",
+  "version": "1.0.0",
+  "description": "webpack training",
+  "main": "./build/app.bundle.js",
+  "scripts": {
+    "start": "node ./build/app.bundle.js",
+    "build": "webpack"
+  },
+  "keywords": [
+    "webpack",
+    "js"
+  ],
+  "author": "BB",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  }
+}

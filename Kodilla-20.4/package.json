@@ -4,8 +4,7 @@
   "description": "webpack loaders training",
   "main": "",
   "scripts": {
-    "start": "node ./build/app.bundle.js",
-    "build": "webpack"
+    "start": "webpack"
   },
   "keywords": [
     "webpack",
@@ -14,12 +13,18 @@
   "author": "BB",
   "license": "MIT",
   "devDependencies": {
+    "babel-loader": "^8.0.6",
     "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
+    "css-loader": "^3.2.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "style-loader": "^1.0.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {
+    "uuid": "^3.3.3"
   }
 }

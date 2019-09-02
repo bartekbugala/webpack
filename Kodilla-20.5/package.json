@@ -1,13 +1,16 @@
 {
-  "name": "webpack-loaders",
+  "name": "webpack-env-config",
   "version": "1.0.0",
-  "description": "webpack loaders training",
+  "description": "webpack enviroment configurations training",
   "main": "",
   "scripts": {
-    "start": "webpack"
+    "start": "webpack --env development",
+    "build": "webpack --env production"
   },
   "keywords": [
     "webpack",
+    "config",
+    "env",
     "js"
   ],
   "author": "BB",

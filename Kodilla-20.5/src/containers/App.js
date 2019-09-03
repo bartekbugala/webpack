@@ -6,8 +6,8 @@ import Title from '../components/Title.js';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.props.appTitle = 'To do List';
         this.state = {
+            appTitle: 'To do List',
             data: [
                 {
                     id: 20,
@@ -43,7 +43,7 @@ class App extends React.Component {
     render() {
         return (
             <div className={style.TodoApp}>
-                <Title title={this.props.appTitle} taskAmount={this.state.data.length} />
+                <Title title={this.state.appTitle} taskAmount={this.state.data.length} />
             </div>
         );
     }

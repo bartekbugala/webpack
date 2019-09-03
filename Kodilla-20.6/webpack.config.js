@@ -1,16 +1,36 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const OptimizeJsPlugin = require('optimize-js-plugin');
+const plugins = [
+    new HtmlWebpackPlugin({
+        template: 'src/template.html',
+        filename: 'index.html',
+        inject: 'body'
+    }),
+    new BrowserSyncPlugin({
+        host: 'localhost',
+        port: 3000,
+        server: { baseDir: ['./build'] }
+    }),
+];
 
 module.exports = env => {
-    const enviroment = env || 'production';
-    console.log('Enviroment:' + enviroment);
+    const environment = env || 'production';
+    console.log('Enviroment:' + environment);
+     if (environment === 'production') {
+        plugins.push(
+            new OptimizeJsPlugin({
+                sourceMap: false
+            })
+        )
+    }
     return {
-        mode: enviroment,
+        mode: environment,
         entry: './src/index.js',
         output: {
             path: path.resolve(__dirname, 'build'),
-            filename: 'app.' + enviroment + '.bundle.js'
+            filename: 'app.' + environment + '.bundle.js'
         },
         module: {
             rules: [
@@ -32,17 +52,6 @@ module.exports = env => {
                 }
             ]
         },
-        plugins: [new HtmlWebpackPlugin({
-            template: 'src/template.html',
-            filename: 'index.html',
-            inject: 'body'
-        }),
-        new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 3000,
-            server: { baseDir: ['./build'] }
-        }) 
-
-        ]
+        plugins
     }
 };

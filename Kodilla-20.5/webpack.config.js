@@ -1,14 +1,14 @@
 const path = require('path');
 
 module.exports = env => {
-    const enviroment = env || 'production'
+    const environment = env || 'production'
     console.log('Enviroment:' + env);
     return {
-        mode: enviroment,
+        mode: environment,
         entry: './src/index.js',
         output: {
             path: path.resolve(__dirname, 'build'),
-            filename: 'app.' + enviroment + '.bundle.js'
+            filename: 'app.' + environment + '.bundle.js'
         },
         module: {
             rules: [

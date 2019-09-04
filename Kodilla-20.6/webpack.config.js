@@ -1,13 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-//const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const plugins = [
     new HtmlWebpackPlugin({
         template: 'src/template.html',
         filename: 'index.html',
         inject: 'body'
     }),
-//    new CleanWebpackPlugin(),
 ];
 
 module.exports = env => {

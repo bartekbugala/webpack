@@ -1,30 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const OptimizeJsPlugin = require('optimize-js-plugin');
+//const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const plugins = [
     new HtmlWebpackPlugin({
         template: 'src/template.html',
         filename: 'index.html',
         inject: 'body'
     }),
-    new BrowserSyncPlugin({
-        host: 'localhost',
-        port: 3000,
-        server: { baseDir: ['./build'] }
-    }),
+//    new CleanWebpackPlugin(),
 ];
 
 module.exports = env => {
     const environment = env || 'production';
     console.log('Enviroment:' + environment);
-     if (environment === 'production') {
-        plugins.push(
-            new OptimizeJsPlugin({
-                sourceMap: false
-            })
-        )
-    }
     return {
         mode: environment,
         entry: './src/index.js',
@@ -52,6 +40,11 @@ module.exports = env => {
                 }
             ]
         },
-        plugins
+        plugins,
+        devServer: {
+            contentBase: path.join(__dirname, 'dist'),
+            compress: true,
+            port: 9000
+          }
     }
 };

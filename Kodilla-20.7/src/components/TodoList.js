@@ -1,9 +1,14 @@
 import React from 'react';
+import Todo from './Todo.js';
+import { hot } from 'react-hot-loader';
 import style from './TodoList.css';
 
-const TodoList = props =>
-<div className={style.TodoList}>
-    {props.tasksData.map(element => <div onClick={() => props.removeTask(element.id)}>Task: {element.id} - {element.name}</div>)}
-</div>
+const TodoList = props => (
+  <div className={style.TodoList}>
+    {props.tasksData.map(element => (
+      <Todo key={element.id} handleClick={() => props.removeTask(element.id)} elementName={element.name} />
+    ))}
+  </div>
+);
 
-export default TodoList;
+export default hot(module)(TodoList);

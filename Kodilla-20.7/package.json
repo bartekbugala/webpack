@@ -4,7 +4,7 @@
   "description": "webpack hot module replacement training",
   "main": "",
   "scripts": {
-    "start": "webpack --env development",
+    "start": "webpack-dev-server --hot --env development",
     "build": "webpack --env production",
     "watch": "webpack --watch",
     "serv": "webpack-dev-server --open"
@@ -31,6 +31,7 @@
     "html-webpack-plugin": "^3.2.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-hot-loader": "^4.12.12",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",

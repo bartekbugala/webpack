@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -33,4 +32,4 @@ class TodoForm extends React.Component {
     );
   }
 }
-export default hot(module)(TodoForm);
+export default TodoForm;

@@ -1,6 +1,5 @@
 import React from 'react';
 import Todo from './Todo.js';
-import { hot } from 'react-hot-loader';
 import style from './TodoList.css';
 
 const TodoList = props => (
@@ -11,4 +10,4 @@ const TodoList = props => (
   </div>
 );
 
-export default hot(module)(TodoList);
+export default TodoList;

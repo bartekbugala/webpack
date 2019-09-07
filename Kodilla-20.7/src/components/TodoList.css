@@ -1,0 +1,15 @@
+.TodoList div {
+    user-select: none;
+    margin: 5px 0;
+    width: 300px;
+    background-color: pink;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color .3s linear;
+}
+.TodoList div:hover {
+    cursor: pointer;
+    background-color: rgb(207, 163, 171);
+}

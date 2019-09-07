@@ -1,15 +1,18 @@
 import React from 'react';
 import uuid from 'uuid';
-//import style from './App.css';
 import style from '../sass/style.scss';
 import TodoForm from '../components/TodoForm.js';
 import Title from '../components/Title.js';
+import Info from '../components/Info.js';
 import TodoList from '../components/TodoList.js';
 import { hot } from 'react-hot-loader';
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
 
 const cookieAge = 5184000;
+const infoString = 'Ta strona używa ciasteczek w celu zapisywania tasków w przeglądarce.\nKlikając na task usuwasz go.'.split('\n').map((item, key) => {
+  return <span key={key}>{item}<br/></span>
+});
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +23,7 @@ class App extends React.Component {
     }
     this.state = {
       appTitle: 'To do List',
+      cookieInfo: infoString,
       data: cookies.get('data')
     };
     this.addTodo = this.addTodo.bind(this);
@@ -44,6 +48,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={style.TodoApp}>
+        <Info cookieInfo={this.state.cookieInfo}/>
         <TodoForm addTask={this.addTodo} />
         <Title title={this.state.appTitle} taskAmount={this.state.data.length} />
         <TodoList tasksData={this.state.data} removeTask={this.removeTodo} />

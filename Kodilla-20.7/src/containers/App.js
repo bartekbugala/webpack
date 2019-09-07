@@ -9,12 +9,14 @@ import { hot } from 'react-hot-loader';
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
 
+const cookieAge = 5184000;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     const { cookies } = props;
     if((cookies.get('data')) === undefined) {
-      cookies.set('data', [], { path: '/', maxAge:  15 });
+      cookies.set('data', [], { path: '/', maxAge: 15 });
     }
     this.state = {
       appTitle: 'To do List',
@@ -30,13 +32,13 @@ class App extends React.Component {
       id: uuid.v4()
     };
     const data = [...this.state.data, todo];
-    cookies.set('data', data, { path: '/', maxAge: 5184000 });
+    cookies.set('data', data, { path: '/', maxAge: cookieAge });
     this.setState({ data });
   }
   removeTodo(id) {
     const { cookies } = this.props;
     const remainder = this.state.data.filter(todo => todo.id !== id);
-    cookies.set('data', remainder, { path: '/', maxAge: 5184000 });
+    cookies.set('data', remainder, { path: '/', maxAge: cookieAge });
     this.setState({ data: remainder });
   }
   render() {
@@ -54,5 +56,4 @@ class App extends React.Component {
   cookies: instanceOf(Cookies).isRequired
 };
 
-/* export default hot(module)(App); */
 export default hot(module) (withCookies(App));

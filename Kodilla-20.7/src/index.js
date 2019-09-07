@@ -4,6 +4,8 @@ import App from './containers/App';
 import { CookiesProvider } from 'react-cookie';
 
 ReactDOM.render(
-<CookiesProvider>
-<App />
-</CookiesProvider>, document.getElementById('app'));
+  <CookiesProvider>
+    <App />
+  </CookiesProvider>,
+  document.getElementById('app')
+);

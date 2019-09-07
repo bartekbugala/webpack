@@ -1,6 +1,6 @@
 import React from 'react';
 import Todo from './Todo.js';
-import style from './TodoList.css';
+import style from '../sass/style.scss';
 
 const TodoList = props => (
   <div className={style.TodoList}>

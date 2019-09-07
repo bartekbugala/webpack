@@ -25,24 +25,28 @@ module.exports = env => {
                     loader: "babel-loader"
                 },
                 {
-                    test: /\.css$/,
+                    test: /\.scss$/i,
                     use: [
+                        // Creates `style` nodes from JS strings
                         { loader: 'style-loader' },
+                        // Translates CSS into CommonJS
                         {
                             loader: 'css-loader',
                             options: {
                                 modules: true
                             }
-                        }
-                    ]
-                }
-            ]
+                        },
+                        // Compiles Sass to CSS
+                        { loader: 'sass-loader' },
+                    ],
+                },
+            ],
         },
         plugins,
         devServer: {
             contentBase: path.join(__dirname, 'dist'),
             compress: true,
             port: 9000
-          }
+        }
     }
 };

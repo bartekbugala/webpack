@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --hot --env development",
     "build": "webpack --env production",
     "watch": "webpack --watch",
-    "serv": "webpack-dev-server --open"
+    "serv": "webpack-dev-server --open",
+    "webpack": "webpack"
   },
   "keywords": [
     "webpack",
@@ -29,15 +30,18 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-hot-loader": "^4.12.12",
+    "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
+    "react-cookie": "^4.0.1",
     "uuid": "^3.3.3"
   }
 }
